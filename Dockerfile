@@ -8,6 +8,6 @@ RUN pip3 install -r requirments.txt
 
 COPY . .
 
-CMD [ "flask", "--app", "run.py", "run", "--host=0.0.0.0"]
+CMD ["export", "FLASK_RUN_PORT=8800"]
 
-CMD ["netstat", "-nao"]
+CMD [ "flask", "--app", "run.py", "run", "--host=0.0.0.0"]
