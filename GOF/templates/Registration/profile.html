@@ -1,0 +1,65 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+<div class="container my-4 w-100">
+  <div class="row justify-content-md-center">
+    <div class="col d-flex flex-column justify-content-center">
+      <div class="container d-flex justify-content-center">
+        {% if data['file'] %}
+            <img src={{ url_for('static', filename='files/'+ data.file) }} class="rounded-circle" width="150px" />
+        {% else %}
+          <img src={{ url_for('static', filename="profile.svg") }} class="" width="150px" />
+        {% endif %}
+        
+      </div>
+        <a href="/registration/logout" class="text-center my-3 fs-4">Log out</a>
+        <a href="/registration/update/{{ data._id }}" class="text-center my-3 fs-4">Edit</a>
+        <div class="container my-3 d-flex flex-column justify-content-center">
+          Username:
+          <input class="form-control" value="{{data['_id']}}" readonly style="width: 100%"><br>
+          First Name:
+          <input class="form-control" value="{{data['firstname']}}" readonly style="width: 100%"><br>
+          Last Name:
+          <input class="form-control" value="{{data['lastname']}}" readonly style="width: 100%"><br>
+          E-mail:
+          <input class="form-control" value="{{data['email']}}" readonly style="width: 100%"><br>
+          Occupation:
+          <input class="form-control" value="{{data['occupation']}}" readonly style="width: 100%"><br>
+          Phone Number:
+          {% if session['username']==data['_id'] %}
+            <input class="form-control" value="{{data['phonenumber']}}" readonly style="width: 100%"><br>
+          {% else %}
+            <input class="form-control" value="************" readonly style="width: 100%"><br>
+          {% endif %}
+          Age:
+          <input class="form-control" value="{{data['age']}}" readonly style="width: 100%"><br>
+          College/Company/University:
+          <input class="form-control" value="{{data['college']}}" readonly style="width: 100%"><br>
+        </div>
+      </div>
+
+      <div class="col col-lg-4">
+        <p class="text-center fs-4">Your Questions</p>
+        {% for que in ques %}
+          <div class="card dis_q">
+            <div class="card-body" onclick="location.href = '/QnA/comment/{{que._id}}'" style="cursor: pointer;">
+              <blockquote class="blockquote mb-0 fs-6">
+                <p>{{ que['question'] | markdown }}</p>
+              </blockquote>
+              <a href="/registration/profile/{{que['user_id']}}">{{ que['user_id'] }}</a>
+            </div>
+            <div class="card-header p-3">
+              <div class="d-flex flex-row-reverse m-0">
+                <button class="btn btn-primary p-1 mx-2" onclick="location.href = '/QnA/add_ans/{{que._id}}';">Add Answer</button>
+                <button class="like mx-2 p-0" onclick="like('{{que._id}}', -1)">&#9650;<span id="likes{{que._id}}">{{que['like']|length}}</span></button>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock content %}

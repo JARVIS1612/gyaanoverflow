@@ -1,0 +1,70 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+
+<div class="container border rounded-4 shadow p-3 mb-5 login_box">
+    <p class="text-center fs-1">Update profile</p>
+    {% with messages = get_flashed_messages() %}  
+        {% if messages %}  
+            {% for message in messages %}  
+                <div class="alert alert-danger text-center" role="alert">
+                    <h5>{{ message }}</h5>
+                </div>
+            {% endfor %}  
+        {% endif %}  
+    {% endwith %}
+    <form method="post" action="" enctype="multipart/form-data" class="container mt-5" name="myForm" onsubmit="return validateform()">
+        
+        <div class="form-floating mb-3" id="uname">
+            <input type="text" class="form-control" value={{data._id}} name="username" placeholder="Username" readonly/>
+            <label for="username">Username</label>
+            <b><div class="invalid-feedback" style="display: block;"></div></b>
+        </div>
+        <div class="form-floating mb-3" id="fname">
+            <input type="text" class="form-control" value={{data.firstname}} name="firstname" placeholder="First Name"/>
+            <label for="firstname">First Name</label>
+            <b><div class="invalid-feedback" style="display: block;"></div></b>
+        </div>
+        <div class="form-floating mb-3" id="lname">
+            <input type="text" class="form-control" value={{data.lastname}} name="lastname" placeholder="Last Name"/>
+            <label for="lastname">Last Name</label>
+            <b><div class="invalid-feedback" style="display: block;"></div></b>
+        </div>
+        <div class="form-floating mb-3" id="email">
+            <input type="email" class="form-control" value={{data.email}} name="email" placeholder="Email"/>
+            <label for="email">Email</label>
+            <b><div class="invalid-feedback" style="display: block;"></div></b>
+        </div>
+        <div class="form-floating mb-3" id="pnum">
+            <input type="text" class="form-control" value={{data.phonenumber}} name="phonenumber" placeholder="Phone No."/>
+            <label for="phonenumber">Mobile No.</label>
+            <b><div class="invalid-feedback" style="display: block;"></div></b>
+        </div>
+        <div class="form-floating mb-3" id="age">
+            <input type="number" class="form-control" value={{data.age}} name="age" placeholder="Age"/>
+            <label for="age">Age</label>
+            <b><div class="invalid-feedback" style="display: block;"></div></b>
+        </div>
+        <div class="form-floating mb-3" id="occ">
+            <input type="text" class="form-control" value={{data.age}} name="occupation" placeholder="Occupation Student/Faculty etc."/>
+            <label for="occupation">Occupation</label>
+            <b><div class="invalid-feedback" style="display: block;"></div></b>
+        </div>
+        <div class="form-floating mb-3" id="col">
+            <input type="text" class="form-control" value={{data.college}} name="college" placeholder="College"/>
+            <label for="college">College/University</label>
+            <b><div class="invalid-feedback" style="display: block;"></div></b>
+        </div>
+        <div class="mb-3">
+            <label for="profile_pic">Diaplay Picture</label>
+            <input type="file" class="form-control" name="profile_pic"/>
+        </div>
+        
+        <br/>
+        <button type="Submit" class="btn btn-outline-primary">Submit</button>
+        <hr>
+        <p class="text-center fs-4"><a href="/registration/">Already have an account</a></p>
+    </form>
+</div>
+
+{% endblock content %}

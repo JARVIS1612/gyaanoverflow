@@ -1,0 +1,27 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+
+<div class="container border rounded-4 shadow p-3 mb-5 login_box">
+    <p class="text-center fs-1">Log In</p>
+    {% with messages = get_flashed_messages() %}  
+        {% if messages %}  
+            {% for message in messages %}  
+                <div class="alert alert-danger text-center" role="alert">
+                    <h5>{{ message }}</h5>
+                </div>
+            {% endfor %}  
+        {% endif %}  
+    {% endwith %}
+    <form action="" method="post" class="container mt-5">
+        <input type="text" class="form-control" name="username" placeholder="Username"/>
+        <input type="password" class="form-control" name="password" placeholder="Password"/>
+        <br/>
+        <!-- <a href="#"><h4>Forgot Password ?</h4></a> -->
+        <button type="Submit" class="btn btn-outline-primary">Submit</button>
+        <hr>
+        <p class="text-center fs-4"><a href="signup">Create account</a></p>
+    </form>
+</div>
+
+{% endblock content %}

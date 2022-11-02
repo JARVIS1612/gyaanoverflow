@@ -1,0 +1,48 @@
+{% extends 'Home/base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="d-flex justify-content-center">
+        <div class="alert alert-primary text-center p-0 m-2 w-75 " role="alert">
+            <h5>{{ message }}</h5>
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="container search mx-auto my-3 w-75">
+  <form class="input-group mb-3" action="" method="post">
+    <input type="text" class="form-control" name="query" placeholder="Write Question" aria-label="Recipient's username"
+      aria-describedby="basic-addon2">
+    <span class="input-group-text" id="basic-addon2">
+      <button type="submit" class="m-0" style="border: none">&#128269; Search</button>
+    </span>
+  </form>
+</div>
+
+{% for que in questions %}
+<div class="card dis_q">
+  <div class="card-body" onclick="location.href = 'comment/{{que._id}}'" style="cursor: pointer;">
+    <blockquote class="blockquote mb-0 fs-6">
+      <p>{{ que['question'] | markdown }}</p>
+    </blockquote>
+    <a href="/registration/profile/{{que['user_id']}}">{{ que['user_id'] }}</a>
+  </div>
+  <div class="card-header p-3 d-sm-flex justify-content-between">
+    <div class="text-wrap d-flex">
+      {% for tag in que['tags'] %}
+      <div class="text-wrap mx-1 p-1 mb-2 bg-dark text-white rounded"><b>{{ tag }}</b></div>
+      {% endfor %}
+    </div>
+    <div class="d-flex flex-row-reverse m-0">
+      <button class="btn btn-primary p-1 mx-2" onclick="location.href = 'add_ans/{{que._id}}';">Add Answer</button>
+      <button class="like mx-2 p-0" onclick="like('{{que._id}}', -1)">&#9650;<span id="likes{{que._id}}">{{que['like']|length}}</span></button>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+<button type="submit" class="btn btn-primary fixedbutton" onclick="location.href = 'add_que';">+</button>
+{% endblock content %}

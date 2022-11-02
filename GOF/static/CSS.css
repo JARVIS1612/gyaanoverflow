@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100%; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.login_box{
+    margin-top: 10vh;
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding: 15px;
+    width: 750px;
+}
+
+.login_box, .input-group a{
+    text-decoration: none;
+}
+
+.login_box input, button{
+    margin-top: 12px;
+}
+
+.login_box p{
+    color: #0D6EFD;
+    font-weight: 900;
+}
+
+
+.nav_padding{
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+}
+
+.dis_q{
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 9%;
+}
+
+.dis_ans{    
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 10%;
+    display: block;
+}
+
+.like{
+    background-color: transparent;
+    border: none;
+}
+
+.dislike{
+    background-color: transparent;
+    border: none;
+}
+
+.search{
+    cursor: pointer;
+}
+
+.profile_img{
+    margin-left: 20%;
+}
+
+.que_box{
+    margin-top: 10vh;
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding: 15px;
+    width: 800px;
+}
+
+.fixedbutton{
+    padding: 0;
+    font-size: 35px;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.ans_box{
+    background-color: #fafafa;
+    border-radius: 5px;
+    padding: 15px;
+    width: 80%;
+}
+
+@media screen and (max-width: 576px){
+    .login_box{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 10vh;
+    }
+    .que_box{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 5vh;
+    }
+}

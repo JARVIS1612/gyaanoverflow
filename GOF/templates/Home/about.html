@@ -1,0 +1,83 @@
+{% extends 'Home/base.html' %}
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}  
+    {% if messages %}  
+        {% for message in messages %}  
+            <div class="alert alert-primary text-center p-0 m-2" role="alert">
+                <h5>{{ message }}</h5>
+            </div>
+        {% endfor %}  
+    {% endif %}  
+{% endwith %}
+
+
+<div class="container mt-4">
+    <center>
+        <img src="{{ url_for('static', filename='books.jpg') }}" style="width: 60%;">
+    </center>
+</div>
+
+<div class="container mt-5">
+    <p class="fs-2">
+        Why GyaanOverFlow exist ?
+    </p>
+    <p>
+        Our mission is to share and grow the world’s knowledge. Not all knowledge can be 
+        written down, but much of that which can be, still isn't. It remains in people’s 
+        heads or only accessible if you know the right people. We want to connect the people 
+        who have knowledge to the people who need it, to bring together people with different perspectives
+        so they can understand each other better, and to empower everyone to share their knowledge for 
+        the benefit of the rest of the world.
+    </p>
+</div>
+
+<center>
+
+  <p class="fs-1 mt-5 text-info">User's Review</p>
+  
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="card border-primary mb-3 mx-2" style="width: 350px">
+        <div class="card-body text-primary">
+          <h5 class="card-title"><b>GyaanOverFlow Is Great :)</b></h5>
+          <p class="card-text">
+            GyaanOverFlow is a great communication platform! It allows you to 
+            connect with people who have similar interests, and it also allows 
+            you to ask questions and get answers from experts in various fields. It's a great way to learn 
+            new things, and it's also a great way to connect with people who share your interests.
+          </p>
+        </div>
+      </div>    
+    </div>
+    <div class="carousel-item">
+      <div class="card border-secondary mb-3 mx-2" style="width: 350px">
+        <div class="card-body text-secondary">
+          <h5 class="card-title"><b>GyaanOverFlow website is so nice</b></h5>
+          <p class="card-text">GyaanOverFlow website is so nice, its an asset for the information that is available at the hands of experts, sales people, people with experiences, normal audience and vice versa. The information there may or may not be reliable, it really depends on the knowledge of the GyaanOverFlow writer and the sources he/she provides. Its a platform for writing/sharing/advertising.</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card border-success mb-3 mx-2" style="width: 350px">
+        <div class="card-body text-success">
+          <h5 class="card-title"><b>Excellent Site</b></h5>
+          <p class="card-text">I have been on GyaanOverFlow for a little while now and I have had no bad issues or experiences with this site. I have met a lot of other great members and I have definitely found some great answers to some questions that I have been wanting to know for a long time. There are a few things that seem kind of different on this site but overall I am very satisfied with it. Also that most of the people that I am in contact with, loves that I am so committed to my perfect mistress owner Goddess Mia and I love expressing it here on GyaanOverFlow! :)</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="carousel-item">
+      <div class="card border-info mb-3 mx-2" style="width: 350px">
+        <div class="card-body">
+          <h5 class="card-title"><b>A smart use of time</b></h5>
+          <p class="card-text">I am a member of GyaanOverFlow community since some months ago I would totally suggest to everyone else. For every question you might have you get quick answers from experts, after some time you notice that even you can help others with the knowledge you already posses.</p>
+        </div>
+      </div>     
+    </div>
+</div>
+</center>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+
+<div class="container border rounded-4 shadow p-2 mb-5 que_box">
+  <p class="text-center fs-1">Update Question !!</p>
+  <form action="" method="post" class="container mt-5" enctype="multipart/form-data">
+      <p class="fs-6">update in question will lose all comments and likes.</p>
+      <p>Markdown also supported.</p>
+    <textarea class="form-control" id="que_field" value={{question.question}} name="question" rows=5 placeholder="Question" required>{{question.question}}</textarea>
+    <input type="text" name="tags" value="{{question.tags | join(',')}}" class="form-control mt-3" placeholder="Add comma seperated tags">
+    <input type="file" name="que_file" class="form-control mt-3">
+    <button type="button" id="preview_que" class="btn btn-outline-secondary" data-bs-toggle="modal"
+      data-bs-target="#exampleModal" onclick="preview_que_fun()">Preview</button>
+    <button type="Submit" class="btn btn-outline-primary">Submit</button>
+  </form>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Preview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="container" id="prv_que_field"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

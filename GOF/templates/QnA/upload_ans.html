@@ -1,0 +1,47 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+
+<div class="card dis_q">
+  <div class="card-body" onclick="display_ans(1)">
+    <blockquote class="blockquote mb-0">
+      <p>{{que['question'] | markdown}}</p>
+    </blockquote>
+
+  </div>
+  <div class="card-header d-flex flex-row justify-content-between p-3">
+    <div class="text-wrap d-flex" style="width: 50rem">
+      {% for tag in que['tags'] %}
+      <div class="text-wrap mx-1 p-1 mb-2 bg-dark text-white rounded"><b>{{ tag }}</b></div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+<div class="container card mt-3 ans_box">
+  <form action="" method="post" class="container" enctype="multipart/form-data">
+    <p class="fs-6">Markdown also supported !</p>
+    <textarea class="form-control" id="ans_field" name="comment" rows=5 placeholder="Answer/Comment"
+      required></textarea>
+    <input type="file" name="ans_file" class="form-control mt-3">
+    <button type="button" id="preview_ans" class="btn btn-outline-secondary" data-bs-toggle="modal"
+      data-bs-target="#exampleModal" onclick="preview_ans_fun()">Preview</button>
+    <button type="Submit" class="btn btn-outline-primary">Submit</button>
+  </form>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Preview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="container" id="prv_ans_field"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
