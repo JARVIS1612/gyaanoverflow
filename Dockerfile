@@ -2,8 +2,7 @@ FROM python:3.8-slim-buster
 
 COPY ./requirments.txt /app/requirments.txt
 
-ARG EnvironmentVariable
-
+ARG PORT
 
 WORKDIR /app
 
