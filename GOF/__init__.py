@@ -9,6 +9,7 @@ def create_app():
     # app.config['MONGO_URI'] = "mongodb://localhost:27017/"
     Markdown(app)
     # mongo.init_app(app)
+    app.config['ALLOWED_HOSTS'] = ["*"]
 
     from GOF.Registration import registration
     from GOF.main import main
