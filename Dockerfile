@@ -10,4 +10,4 @@ RUN pip3 install -r requirments.txt
 
 COPY . .
 
-CMD [ "gunicorn", "-w", "4", "-b", "0.0.0.0:$PORT","run:app"]
+CMD [ "gunicorn", "-w", "-b", "0.0.0.0:${PORT}","run:app"]
