@@ -8,4 +8,4 @@ RUN pip3 install -r requirments.txt
 
 COPY . .
 
-CMD [ "flask", "--app", "run.py", "run", "--host=0.0.0.0"]
+CMD [ "flask", "--app", "run.py", "run"]
