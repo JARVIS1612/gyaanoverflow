@@ -8,6 +8,9 @@ RUN pip3 install -r requirments.txt
 
 COPY . .
 
-CMD ["export", "FLASK_RUN_PORT=8800"]
+ARG PORT=8004
+ENV PORT=$PORT
+#start server
+EXPOSE ${PORT}
 
-CMD [ "flask", "--app", "run.py", "run", "--host=0.0.0.0"]
+ENTRYPOINT [ "gunicorn", "-w", "4", "-b", "0.0.0.0:${PORT}","wsgi:app" ]
