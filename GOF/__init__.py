@@ -9,7 +9,10 @@ def create_app():
     # app.config['MONGO_URI'] = "mongodb://localhost:27017/"
     Markdown(app)
     # mongo.init_app(app)
-
+    app.config['ALLOWED_HOSTS'] = ["*"]
+    app.config['FLASK_ENV'] = "production"
+    app.config['FLASK_RUN_PORT'] = ["*"]
+    print(app.config)
     from GOF.Registration import registration
     from GOF.main import main
     from GOF.Ask_Anything import qna_
