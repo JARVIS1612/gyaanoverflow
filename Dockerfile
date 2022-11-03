@@ -8,4 +8,4 @@ RUN pip3 install -r requirments.txt
 
 COPY . .
 
-ENTRYPOINT [ "gunicorn", "-w", "4", "-b", "0.0.0.0:$PORT","wsgi:app" ]
+ENTRYPOINT [ "gunicorn", "-w", "4", "-b", "0.0.0.0","wsgi:app" ]
