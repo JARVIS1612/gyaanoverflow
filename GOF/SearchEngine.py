@@ -6,6 +6,9 @@ from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 from numpy.linalg import norm
+import nltk
+
+nltk.download('punkt')
 
 def TextPreprocessing(text):
     if not text:
