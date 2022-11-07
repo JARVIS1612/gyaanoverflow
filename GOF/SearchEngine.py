@@ -9,7 +9,7 @@ from numpy.linalg import norm
 import nltk
 
 nltk.download('punkt')
-
+nltk.download('wordnet')
 def TextPreprocessing(text):
     if not text:
         return
