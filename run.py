@@ -4,4 +4,4 @@ import os
 app = create_app()
 if __name__ == "__main__":
     app.secret_key = 'mysecret'
-    app.run(debug=False)
+    app.run(debug=True)
