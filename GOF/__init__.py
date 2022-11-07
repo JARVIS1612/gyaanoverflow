@@ -12,6 +12,7 @@ def create_app():
     app.config['ALLOWED_HOSTS'] = ["*"]
     app.config['FLASK_ENV'] = "production"
     app.config['FLASK_RUN_PORT'] = ["*"]
+    app.secret_key = 'super secret key'
     print(app.config)
     from GOF.Registration import registration
     from GOF.main import main
