@@ -12,9 +12,9 @@ qna_database = mongo.db.QnA
 
 from ..SearchEngine import mini_search
 
-location = os.path.join(Path(__file__).parent.parent)
+location = os.path.join(Path(__file__).parent.parent,Path('static/files'))
 try:
-    os.makedirs(location+'\\static\\files')
+    os.makedirs(location)
 except:
     pass
 print("LOCATION: ", location)

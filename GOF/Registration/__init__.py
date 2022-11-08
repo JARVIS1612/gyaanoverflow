@@ -14,8 +14,8 @@ print(mongo)
 users = mongo.db.Users
 qna_database = mongo.db.QnA
 
-location = os.path.join(Path(__file__).parent.parent, Path('static/files'))
-print(location)
+location = os.path.join(Path(__file__).parent.parent,Path('static/files'))
+print("Loaction_ regisration:", location)
 
 @registration.route('/', methods = ['GET', 'POST'])
 def login():
