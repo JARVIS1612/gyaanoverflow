@@ -12,7 +12,13 @@ qna_database = mongo.db.QnA
 
 from ..SearchEngine import mini_search
 
-location = os.path.join(Path(__file__).parent.parent, Path('static/file'))
+location = os.path.join(Path(__file__).parent.parent)
+try:
+    os.makedirs(location+'\\static\\files')
+except:
+    pass
+print("LOCATION: ", location)
+
 
 @qna_.route('/', methods = ['GET', 'POST'])
 def ask_anything():

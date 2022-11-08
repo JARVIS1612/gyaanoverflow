@@ -14,8 +14,9 @@ print(mongo)
 users = mongo.db.Users
 qna_database = mongo.db.QnA
 
-location = os.path.join(Path(__file__).parent.parent, Path('static/file'))
+location = os.path.join(Path(__file__).parent.parent, Path('static/files'))
 print(location)
+
 @registration.route('/', methods = ['GET', 'POST'])
 def login():
     if request.method == "POST":
