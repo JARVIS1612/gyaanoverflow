@@ -3,6 +3,7 @@ from datetime import datetime
 from bson.objectid import ObjectId
 import os
 from werkzeug.utils import secure_filename
+from pathlib import Path
 
 qna_ = Blueprint('qna', __name__)
 
@@ -11,7 +12,7 @@ qna_database = mongo.db.QnA
 
 from ..SearchEngine import mini_search
 
-location = "D:\\College\\WebDev\\Fynd\\GyaanOverFlow\\GOF\\static\\files\\"
+location = os.path.join(Path(__file__).parent.parent, Path('static/file'))
 
 @qna_.route('/', methods = ['GET', 'POST'])
 def ask_anything():
