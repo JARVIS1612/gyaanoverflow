@@ -5,6 +5,7 @@ from datetime import datetime
 import hashlib
 import os
 from werkzeug.utils import secure_filename
+from pathlib import Path
 
 registration = Blueprint('registration', __name__)
 
@@ -13,8 +14,8 @@ print(mongo)
 users = mongo.db.Users
 qna_database = mongo.db.QnA
 
-location = "D:\\College\\WebDev\\Fynd\\GyaanOverFlow\\GOF\\static\\files\\"
-
+location = os.path.join(Path(__file__).parent.parent, Path('static/file'))
+print(location)
 @registration.route('/', methods = ['GET', 'POST'])
 def login():
     if request.method == "POST":
