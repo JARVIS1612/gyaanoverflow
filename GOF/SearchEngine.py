@@ -57,7 +57,6 @@ def mini_search(que_dataset, query):
 
     print("que_texts:",que_texts)
     print("comment_texts:",comment_texts)
-
     size = len(que_texts)
     doc_content = []
 

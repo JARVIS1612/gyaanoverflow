@@ -32,6 +32,14 @@ def ask_anything():
         questions = qna_database.find({'_id': {'$in':ques_id}})
     return render_template('QnA/QnA.html', name="ask_anything", questions=questions)
 
+@qna_.route('/my_content')
+def my_content():
+    if not session:
+        flash("Please Signin First")
+        return redirect('/registration/')
+    questions = qna_database.find({'user_id':session['username'], 'comments.user_id':session['username']}).sort('time', -1)
+    return render_template('QnA/QnA.html', name="your_content", questions=questions)
+    
 @qna_.route('/add_que', methods=['GET','POST'])
 def add_que():
     if not session:
@@ -114,7 +122,7 @@ def dispay_comment(que):
         flash("Please Signin First")
         return redirect('/registration/')
     question = qna_database.find_one({'_id': ObjectId(que)})
-    return render_template('QnA/display_comments.html', name="ask_anything", que=question)
+    return render_template('QnA/display_comments.html', name="Comments", que=question)
 
 
 @qna_.route('/update_que/<que_id>', methods=['GET','POST'])

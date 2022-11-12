@@ -34,19 +34,26 @@
             {% endif %}
         </div>
     </div>
-    <div class="card-header d-flex flex-row justify-content-between p-3">
-        <div class="text-wrap d-flex" style="width: 50rem">
+    <div class="card-header d-sm-flex flex-row justify-content-between p-3">
+        {% if que.tags[0]|length != 0 %}
+        <div class="text-wrap d-flex" style="overflow-x: auto;">
             {% for tag in que['tags'] %}
                 <div class="text-wrap mx-1 p-1 mb-2 bg-dark text-white rounded"><b>{{ tag }}</b></div>
             {% endfor %}
         </div>
+        {% else %}
+        <div></div>
+        {% endif %}
+
         <div class="d-flex flex-row-reverse m-0">
-            <button class="btn btn-primary p-1 mx-2" onclick="location.href = '/QnA/add_ans/{{que._id}}';">Add Answer</button>
+            <button class="btn btn-primary p-1 mx-2" onclick="location.href = '/QnA/add_ans/{{que._id}}';">Add Comments </button>
             <button class="like mx-2 p-0" onclick="like('{{que._id}}', -1)">&#9650;<span id="likes{{que['_id']}}">{{que['like']|length}}</span></button>   
         </div>
     </div>
 </div>
 <div class="dis_ans">
+    <p class="fs-3"><b>Comments</b></p>
+    <hr>
     {% for comment in que['comments'] %}
     <div class="card my-2"> 
         <div class="card-body d-flex flex-row">

@@ -1,8 +1,7 @@
 {% extends 'Home/base.html' %}
 
 {% block content %}
-<div class="container my-4 w-100">
-  <div class="row justify-content-md-center">
+  <div class="container my-5 w-75 justify-content-md-center">
     <div class="col d-flex flex-column justify-content-center">
       <div class="container d-flex justify-content-center">
         {% if data['file'] %}
@@ -37,9 +36,10 @@
         </div>
       </div>
 
-      <div class="col col-lg-4">
+      <!-- <div class="col col-lg-4">
         <p class="text-center fs-4">Your Questions</p>
-        {% for que in ques %}
+        <div style="height: 130vh; overflow-y: auto;">
+          {% for que in ques %}
           <div class="card dis_q">
             <div class="card-body" onclick="location.href = '/QnA/comment/{{que._id}}'" style="cursor: pointer;">
               <blockquote class="blockquote mb-0 fs-6">
@@ -49,12 +49,12 @@
             </div>
             <div class="card-header p-3">
               <div class="d-flex flex-row-reverse m-0">
-                <button class="btn btn-primary p-1 mx-2" onclick="location.href = '/QnA/add_ans/{{que._id}}';">Add Answer</button>
                 <button class="like mx-2 p-0" onclick="like('{{que._id}}', -1)">&#9650;<span id="likes{{que._id}}">{{que['like']|length}}</span></button>
               </div>
             </div>
           </div>
-      {% endfor %}
+          {% endfor %}
+        </div> -->
         
         </div>
       </div>
