@@ -1,5 +1,6 @@
 {% extends 'Home/base.html' %}
 {% block content %}
+
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for message in messages %}
@@ -22,6 +23,9 @@
   </form>
 </div>
 {% endif %}
+{% if questions[0]|length == 0%}
+  <p class="fs-1 m-3">No Content available... :(</p>
+{% else %}
 {% for que in questions %}
 <div class="card dis_q">
   <div class="card-body" onclick="location.href = 'comment/{{que._id}}'" style="cursor: pointer;">
@@ -49,7 +53,7 @@
 </div>
 
 {% endfor %}
-
+{% endif %}
 <button type="submit" class="btn btn-primary fixedbutton" onclick="location.href = 'add_que';">+</button>
 <div class="my-4"></div>
 {% endblock content %}
