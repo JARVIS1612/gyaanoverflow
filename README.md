@@ -50,6 +50,6 @@ python3 -m pip install -r requirments.txt
 ## Start the application
 
 ```
-python ./run.py
+python ./app.py
 ```
 Open your browser on http://localhost:5000
