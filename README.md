@@ -42,6 +42,7 @@ source mflix_venv/bin/activate
 
 Install dependencies
 ```
+python3 -m pip install flask
 python3 -m pip install -r requirments.txt
 ```
 
