@@ -37,7 +37,7 @@ def my_content():
     if not session:
         flash("Please Signin First")
         return redirect('/registration/')
-    questions = qna_database.find({'user_id':session['username'], 'comments.user_id':session['username']}).sort('time', -1)
+    questions = qna_database.find({'$or': [{'user_id':session['username']}, {'comments.user_id':session['username']}]}).sort('time', -1)
     return render_template('QnA/QnA.html', name="your_content", questions=questions)
     
 @qna_.route('/add_que', methods=['GET','POST'])

@@ -85,21 +85,19 @@ function validateform(){
 function preview_ans_fun() {
     console.log("clicked");
     let text = document.getElementById("ans_field").value;
-    console.log("text ", text);
-    text = text.replace(/#/g, "`");
-    text = text.replace(/\n/g, "~");
-    console.log("final-text ", text);
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", '/xhrreq/'+text, true);
+    xhr.open("POST", '/xhrreq', true);
+    xhr.getResponseHeader('content-type', 'text');
+
     xhr.onload = function () {
         if(this.status === 200){
-            document.getElementById("prv_ans_field").innerHTML = this.responseText;
+            document.getElementById("prv_que_field").innerHTML = this.responseText;
         }
         else{
-            console.log("Some error occured")
+            console.log("Some error occured");
         }
     }
-    xhr.send();
+    xhr.send(text);
 }
 
 
