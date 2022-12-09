@@ -160,5 +160,5 @@ def update(id):
                 "file": user['file']
             }
         users.update_one({'_id':id}, {'$set':dict_})
-        return redirect('/registration/profile/test8@123')
+        return redirect('/registration/profile/'+id)
     return render_template('Registration/update_profile.html', name='update_profile', data = user)
